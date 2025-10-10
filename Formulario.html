@@ -3,81 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinePolis - Contacto y Reservas</title>
+    <title>CinePolis - Contacto</title>
     <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body id="inicio">
 
     <header>
-        <div class="logo">
-            <h1>
-                <a href="index.html" class="logo-link">
-                
-                <img src="imagenes/logo.png" alt="Logo de Cinepolis">
-                
-                <span class="logo-texto">CinePolis</span> 
-          </a>
-          </h1>
-        </div>
+       <div class="logo">
+       <h1>
+           <a href="index.html" class="logo-link">
+             <img src="imagenes/logo.png" alt="Logo de Cinepolis">
+             <span class="logo-texto">CinePolis</span>
+           </a>
+       </h1>
+       </div>
         
-        <nav>
-            <ul>
-                <li><a href="index.html#quienes-somos">Nosotros</a></li>
-                <li><a href="index.html#cartelera">Cartelera</a></li>
-                <li><a href="index.html#confiteria">Confitería</a></li>
-                <li><a href="index.html#precios">Precios</a></li>
-                <li><a href="index.html#ubicacion">Ubicación</a></li>
-                <li><a href="formulario.html">Contacto</a></li>
-            </ul>
-        </nav>
+       <nav>
+       <ul>
+       <li><a href="index.html#quienes-somos">Nosotros</a></li>
+       <li><a href="index.html#cartelera">Cartelera</a></li>
+       <li><a href="index.html#confiteria">Confitería</a></li>
+       <li><a href="index.html#precios">Precios</a></li>
+       <li><a href="index.html#ubicacion">Ubicación</a></li>
+       <li><a href="#">Contacto</a></li>
+       </ul>
+       </nav> 
     </header>
 
     <main>
+        <section class="seccion-principal formulario-seccion">
+            <h2>⚛️ Contáctanos y Reserva tus Entradas ⚛️</h2>
+            <p style="text-align: center;">Envíanos tus consultas o peticiones de reserva. Te responderemos a la brevedad.</p>
 
-        <section id="contacto" class="seccion-principal">
-            <h2>📧 Contáctanos y Reserva tus Entradas 📧</h2>
-            <p style="text-align: center; color: #ccc;">
-                Envíanos tus consultas o peticiones de reserva. Te responderemos a la brevedad.
-            </p>
-            
-            <form action="https://formspree.io/f/mgvnkblj" method="POST" class="formulario">
+            <form action="https://formspree.io/f/fajvgzb" method="POST" class="formulario">
                 
-                <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <div class="campos-linea">
+                    <div class="campo-doble">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="campo-doble">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
                 <label for="mensaje">Mensaje o Consulta:</label>
                 <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
-                <div class="botones-finales"> <button type="reset">Limpiar</button>
-                <button type="submit">Enviar Postulación</button> 
-                </div>
-                
-            </form>
-            
-        </section>
 
+                <div class="botones-finales">
+                    <button type="reset" class="boton-limpiar">Limpiar</button>
+                    <button type="submit" class="boton-enviar">Enviar Postulación</button>
+                </div>
+            </form>
+        </section>
     </main>
 
     <footer>
-    <div class="footer-links">
-        <a href="avisoslegales.html">Avisos Legales</a> |
-        <a href="TrabajaNosotros.html">Trabaja con Nosotros</a> |
-        <p><a href="index.html">Inicio</a></p>
-    </div>
+        <div class="footer-seccion footer-info"> 
+            <a href="avisoslegales.html">Avisos Legales</a> |
+            <a href="TrabajaNosotros.html">Trabaja con Nosotros</a>
+            <p class="contacto-admin">Admin: admin@Cinepolis.com</p>
+        </div>
 
-    <div class="redes-sociales">
-        <p>Síguenos:
-            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        </p>
-    </div>
+        <div class="footer-seccion footer-redes"> 
+            <p>Síguenos:
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            </p>
+        </div>
 
-    <p class="contacto-admin">Administración: admin@Cinepolis.com</p>
-    <p class="copyright">© 2024 CinePolis. Todos los derechos NO reservados.</p>
-</footer>
-
+        <div class="footer-seccion footer-copyright"> 
+            <p class="copyright">© 2024 CinePolis. Todos los derechos NO reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>

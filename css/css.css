@@ -97,7 +97,6 @@ main {
 .seccion-principal {
     padding: 60px 0;
     margin-bottom: 30px;
-    border-bottom: 1px dashed var(--color-fondo-secundario);
     border-bottom: 2px dotted var(--color-divisor-verde)
 }
 
@@ -117,9 +116,10 @@ main {
     font-size: 1.1em
 }
 
-.productos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.productos-flex-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
     gap: 30px;
     margin-top: 30px;
 }
@@ -133,8 +133,8 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
     text-align: center; 
+    flex: 0 0 300px; 
 } 
 
 .pelicula-card img {
@@ -189,96 +189,6 @@ main {
     border-radius: 8px;
     width: 100%;
     min-height: 450px;
-}
-
-.formulario {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--color-fondo-secundario);
-    padding: 30px;
-    border-radius: 8px;
-}
-
-.formulario label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: var(--color-texto-claro);
-}
-
-.formulario input[type="text"],.formulario input[type="email"],.formulario input[type="value"],.formulario input[type="reset"],.formulario textarea {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    background-color: #333;
-    color: var(--color-texto-claro);
-    font-size: 1em;
-    margin-bottom: 15px;
-}
-
-.formulario textarea {
-    resize: vertical;
-}
-
-.formulario button[type="submit"] {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background-color: var(--color-acento);
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1.2em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.formulario button[type="submit"]:hover {
-    background-color: #ff333d;
-}
-
-.botones-finales {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.boton-limpiar {
-    background-color: var(--color-fondo-secundario);
-    color: var(--color-texto-claro);
-    padding: 15px 20px;
-    border: 1px solid var(--color-acento); 
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    width: 35%;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.boton-limpiar:hover {
-    background-color: #383838;
-}
-
-.boton-enviar {
-    background-color: var(--color-acento);
-    color: var(--color-texto-claro);
-    padding: 15px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    width: 65%;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.boton-enviar:hover {
-    background-color: #ff333d;
 }
 
 .tabla-contenedor {
@@ -391,9 +301,100 @@ main {
     background-color: #ff4b33;
 }
 
+/* --- Formulario --- */
+
+.formulario-seccion {
+    color: var(--color-texto-claro);
+    border-bottom: none; 
+}
+
+.formulario {
+    max-width: 600px;
+    margin: 30px auto; 
+    background-color: var(--color-fondo-secundario);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.formulario label {
+    display: block; 
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--color-texto-claro);
+}
+
+.formulario label:first-of-type {
+    margin-top: 0;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="url"],
+.formulario textarea {
+    width: 100%; 
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #333;
+    color: var(--color-texto-claro);
+    font-size: 1em;
+    margin-bottom: 15px; 
+    display: block; 
+}
+
+.formulario textarea {
+    resize: vertical;
+    margin-bottom: 20px;
+    margin-top: 0; 
+    box-sizing: border-box; 
+}
+
+.botones-finales {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.boton-limpiar {
+    background-color: var(--color-fondo-secundario);
+    color: var(--color-texto-claro);
+    padding: 15px 20px;
+    border: 1px solid var(--color-acento); 
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 35%;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-limpiar:hover {
+    background-color: #383838;
+}
+
+.boton-enviar {
+    background-color: var(--color-acento);
+    color: var(--color-texto-claro);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 65%;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-enviar:hover {
+    background-color: #ff333d;
+}
+
+/* --- Footer --- */
 footer {
     background-color: #0d0d0d;
-    text-align: center;
     padding: 15px 50px; 
     border-top: 2px solid var(--color-acento);
     font-size: 0.9em;
@@ -402,6 +403,31 @@ footer {
     bottom: 0;
     width: 100%;
     z-index: 100;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    flex-wrap: wrap; 
+    text-align: left; 
+}
+
+.footer-seccion {
+    flex: 0 1 auto; 
+    min-width: 180px; 
+    padding: 5px 10px;
+}
+
+.footer-info {
+    text-align: left;
+}
+
+.footer-redes {
+    text-align: center;
+}
+
+.footer-copyright {
+    text-align: right;
+    flex-basis: auto; 
+    min-width: 250px; 
 }
 
 footer a {
@@ -416,22 +442,11 @@ footer a:hover {
 }
 
 .copyright, .contacto-admin {
-    margin-top: 10px;
+    margin-top: 5px;
     color: var(--color-texto-gris);
 }
 
-.redes-sociales p {
-    margin: 10px 0;
-}
-
-.redes-sociales a {
-    margin: 0 5px;
-    font-size: 1.1em;
-}
-
-.redes-sociales a:hover {
-    color: #fff;
-}
+/* --- Media Queries --- */
 
 @media (max-width: 750px) {
     
@@ -449,205 +464,59 @@ footer a:hover {
         padding-bottom: 0; 
     }
 
-    .seccion-principal {
-        padding: 30px 0;
-        margin-bottom: 20px;
-    }
-
-    .seccion-principal h2 {
-        font-size: 1.8em;
-        margin-bottom: 20px;
-        padding-top: 10px;
-        margin-top: -10px;
-    }
-
-    .seccion-principal p {
-        font-size: 0.95em;
-        text-align: left;
-        color: var(--color-texto-claro)
-    }
-
-    .logo-link {
-        flex-direction: column;
-        margin-bottom: 10px;
-    }
-
-    .logo-link img {
-        max-height: 50px;
-        margin-bottom: 5px;
-    }
-
-    .logo-link .logo-texto {
-        font-size: 1.2em;
-        margin-left: 0;
-        text-align: center;
-        line-height: 1.2;
-    }
-
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        list-style: none;
-        padding: 0;
-        margin-top: 10px;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    nav ul li a {
-        display: block;
-        padding: 10px 0;
-        font-size: 1em;
-        border-bottom: none;
-    }
-
-    nav ul li a:hover {
-        border-bottom: none;
-        background-color: rgba(229, 9, 20, 0.2);
-    }
-
-    .productos-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .productos-flex-container {
+        justify-content: center; 
     }
 
     .pelicula-card {
-        padding: 15px;
-    }
-
-    .pelicula-card h3 {
-        font-size: 1.2em;
-    }
-
-    .pelicula-card p {
-        flex-grow: 1;
-        margin-bottom: 15px;
-        color: var(--color-texto-claro);
-        font-size: 1.1em;
-        text-align: center;
-    }
-
-    .boton-compra {
-        padding: 8px 12px;
-        font-size: 0.9em;
-    }
-
-    .formulario {
-        padding: 20px;
-    }
-
-    .formulario input,
-    .formulario textarea {
-        padding: 10px;
-        font-size: 0.9em;
-    }
-
-    .botones-finales {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 15px;
-    }
-
-    .boton-limpiar,
-    .boton-enviar {
-        width: 100%;
-        font-size: 1em;
-        padding: 12px 0;
-    }
-
-    footer {
-        position: static;
-        padding: 20px 15px;
-        font-size: 0.8em;
-        margin-top: 20px;
-    }
-
-    .footer-links a,
-    .redes-sociales a {
-        font-size: 1em;
-    }
-
-    .imagen-debajo-servicios,
-    .imagen-debajo-quienes {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 20px auto;
-    }
-
-    .seccion-principal img {
-        max-width: 100%;
-        height: auto;
+        flex: 0 0 90%; 
+        min-width: 250px;
     }
     
     .reseñas-grid {
         grid-template-columns: 1fr;
     }
     
-    .reseña-card {
+    .formulario {
         padding: 20px;
+    }
+
+    .botones-finales {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .boton-limpiar,
+    .boton-enviar {
+        width: 100%;
+        padding: 12px 0;
     }
 }
 
-.politica-privacidad {
-    max-width: 900px; 
-    margin: 0 auto;
-    padding: 40px 0; 
-}
+@media (max-width: 768px) {
+    footer {
+        position: static;
+        flex-direction: column; 
+        text-align: center;
+        padding: 20px 15px;
+    }
+    
+    .footer-seccion {
+        flex: 1 1 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    .footer-info a {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .contacto-admin, .copyright {
+        margin-top: 5px;
+    }
 
-.politica-privacidad h2 {
-    color: var(--color-acento);
-    font-size: 2.2em;
-    margin-bottom: 25px;
-    text-align: left; 
-    border-bottom: 2px solid var(--color-fondo-secundario);
-    padding-bottom: 10px;
-}
-
-.politica-privacidad h3 {
-    color: var(--color-texto-claro); 
-    font-size: 1.5em;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.politica-privacidad p {
-    margin-bottom: 20px;
-    color: var(--color-texto-claro); 
-    font-size: 1.05em;
-    line-height: 1.8; 
-    text-align: justify;
-}
-
-.politica-privacidad strong {
-    color: var(--color-acento);
-    font-weight: bold;
-}
-
-.politica-privacidad ul {
-    list-style: none; 
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-.politica-privacidad ul li {
-    position: relative;
-    margin-bottom: 10px;
-    padding-left: 15px;
-    color: var(--color-texto-claro);
-}
-
-.politica-privacidad ul li::before {
-    content: "•"; 
-    color: var(--color-acento);
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
+    .footer-copyright {
+        min-width: unset; 
+    }
 }
