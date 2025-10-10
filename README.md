@@ -1,2 +1,2 @@
-Este proyecto simula un portal de entretenimiento.
-Su objetivo es ofrecer al usuario una experiencia de consumo de contenido digital (simulando streaming y descarga) mientras promociona la experiencia física del cine, incentivando la visita a los complejos de Cine que actualmente ya están dejando de ser utilizados por el streaming.
+Sitio web que representa a una empresa de Cine, donde uno puede elegir sus entradas, consumiciones.
+Sobre todo para quien le gusta lo que es el CINE y las peliculas, esa experiencia genial !.
