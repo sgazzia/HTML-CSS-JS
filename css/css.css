@@ -762,3 +762,38 @@ footer a:hover {
     border-top: 1px dashed #ccc;
     padding-top: 5px;
 }
+@media (max-width: 600px) {
+    
+    .carrito-container {
+        padding: 20px 15px;
+    }
+
+    #lista-carrito li {
+        flex-direction: column; 
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .item-info {
+        flex-basis: 100%; 
+        margin-bottom: 10px;
+    }
+
+    .item-acciones {
+        flex-basis: 100%;
+        justify-content: space-between; 
+        width: 100%;
+    }
+
+    .cantidad-control {
+        margin-right: 0; 
+    }
+    
+    .item-subtotal {
+        margin: 0 10px; 
+    }
+
+    .total-container {
+        font-size: 1.2em; 
+    }
+}
