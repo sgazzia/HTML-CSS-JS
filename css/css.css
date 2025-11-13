@@ -828,3 +828,43 @@ footer a:hover {
     width: 100%;
     z-index: 100;
 }
+
+.api-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.api-card {
+    background-color: var(--color-fondo-secundario);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s;
+}
+.api-card img {
+    width: 70%; 
+    height: auto; 
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.api-card h3 {
+    color: var(--color-acento);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+.api-card p {
+    color: var(--color-texto-claro);
+    font-size: 1.1em;
+    text-align: center;
+}
+#api-loading {
+    text-align: center; 
+    color: var(--color-acento);
+}
