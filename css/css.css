@@ -303,8 +303,6 @@ main {
     background-color: #ff4b33;
 }
 
-/* --- Formulario --- */
-
 .formulario-seccion {
     color: var(--color-texto-claro);
     border-bottom: none; 
@@ -334,6 +332,7 @@ main {
 .formulario input[type="text"],
 .formulario input[type="email"],
 .formulario input[type="url"],
+.formulario input[type="password"],
 .formulario textarea {
     width: 100%; 
     padding: 12px;
@@ -394,7 +393,6 @@ main {
     background-color: #ff333d;
 }
 
-/* --- Footer --- */
 footer {
     background-color: #0d0d0d;
     padding: 15px 50px; 
@@ -447,8 +445,6 @@ footer a:hover {
     margin-top: 5px;
     color: var(--color-texto-gris);
 }
-
-/* --- Media Queries --- */
 
 @media (max-width: 750px) {
     
@@ -796,4 +792,39 @@ footer a:hover {
     .total-container {
         font-size: 1.2em; 
     }
+}
+
+#contenido-principal {
+    display: none ;
+    width: 100%;
+}
+
+#login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-fondo-principal);
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-registro {
+    background-color: var(--color-fondo-secundario);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    width: 90%;
+    max-width: 450px;
+    border: 1px solid var(--color-acento);
+}
+
+#contenido-principal footer {
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
 }

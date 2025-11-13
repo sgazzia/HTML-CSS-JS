@@ -22,7 +22,7 @@ function agregarProducto(nombre, precio, redirigir) {
     guardarCarrito(carrito);
     
     if (redirigir) {
-         window.location.href = 'carrito.html';
+        window.location.href = 'carrito.html';
     }
 }
 
@@ -43,64 +43,6 @@ function eliminarProducto(nombre) {
         renderizarCarrito();
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.body.addEventListener('click', (e) => {
-        if (e.target.classList.contains('boton-compra')) {
-            e.preventDefault();
-
-            const card = e.target.closest('.pelicula-card');
-
-            if (card) {
-                const nombreElement = card.querySelector('h3');
-                let nombre = 'Producto Cinepolis';
-                let precio = 5000; 
-
-                if (nombreElement) {
-                    nombre = nombreElement.textContent.trim();
-                }
-
-                if (card.closest('#cartelera')) {
-                    precio = 5000;
-                } else if (card.closest('#confiteria')) {
-                    if (nombre.includes('Popcorn XL')) precio = 6000;
-                    else if (nombre.includes('Nachos')) precio = 4000;
-                    else if (nombre.includes('Coca-Cola')) precio = 1500;
-                    else precio = 3000; 
-                }
-                
-                agregarProducto(nombre, precio, true); 
-            }
-        }
-    });
-
-    if (document.getElementById('lista-carrito')) {
-        renderizarCarrito();
-    }
-    
-    const form = document.getElementById("checkout-form");
-    if (form) {
-        form.addEventListener("submit", async (event) => {
-            event.preventDefault();
-            
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-                localStorage.removeItem('cinepolis-carrito');
-                cerrarModal();
-                alert("¡Pedido enviado con éxito! Revisa tu correo para confirmar tu compra..");
-                alert("¡Gracias por comprar en CinePolis! Esperamos verte pronto.");
-                window.location.href = 'index.html';
-            } else {
-                alert("Hubo un error al enviar tu pedido. Por favor, inténtalo de nuevo.");
-            }
-        });
-    }
-});
 
 function renderizarCarrito() {
     const carrito = obtenerCarrito();
@@ -197,3 +139,108 @@ function finalizarCompra() {
         modal.style.display = 'block';
     }
 }
+
+// =========================================================
+// FUNCIÓN DE LOGIN (AÑADIDA)
+// =========================================================
+
+function validarLogin(event) {
+    event.preventDefault(); 
+
+    const usuario = document.getElementById('login-usuario').value.trim();
+    const contrasena = document.getElementById('login-contrasena').value.trim();
+    
+    const USUARIO_CORRECTO = "admin";
+    const CONTRASENA_CORRECTA = "blabla3933";
+    
+    if (usuario === USUARIO_CORRECTO && contrasena === CONTRASENA_CORRECTA) {
+        
+        document.getElementById('login-modal').style.display = 'none';
+        document.getElementById('contenido-principal').style.display = 'block';
+        
+        alert("¡Bienvenido, " + usuario + "! Acceso concedido.");
+
+        return true; 
+        
+    } else {
+        
+        alert("Error de acceso: Usuario o Contraseña incorrectos.");
+        
+        document.getElementById('login-contrasena').value = '';
+        
+        return false;
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ----------------------------------------------------
+    // LÓGICA DEL CARRITO (Código existente)
+    // ----------------------------------------------------
+    document.body.addEventListener('click', (e) => {
+        if (e.target.classList.contains('boton-compra')) {
+            e.preventDefault();
+
+            const card = e.target.closest('.pelicula-card');
+
+            if (card) {
+                const nombreElement = card.querySelector('h3');
+                let nombre = 'Producto Cinepolis';
+                let precio = 5000; 
+
+                if (nombreElement) {
+                    nombre = nombreElement.textContent.trim();
+                }
+
+                if (card.closest('#cartelera')) {
+                    precio = 5000;
+                } else if (card.closest('#confiteria')) {
+                    if (nombre.includes('Popcorn XL')) precio = 6000;
+                    else if (nombre.includes('Nachos')) precio = 4000;
+                    else if (nombre.includes('Coca-Cola')) precio = 1500;
+                    else precio = 3000; 
+                }
+                
+                agregarProducto(nombre, precio, true); 
+            }
+        }
+    });
+
+    
+    if (document.getElementById('lista-carrito')) {
+        renderizarCarrito();
+    }
+    
+    
+    const form = document.getElementById("checkout-form");
+    if (form) {
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                localStorage.removeItem('cinepolis-carrito');
+                cerrarModal();
+                alert("¡Pedido enviado con éxito! Revisa tu correo para confirmar tu compra..");
+                alert("¡Gracias por comprar en CinePolis! Esperamos verte pronto.");
+                window.location.href = 'index.html';
+            } else {
+                alert("Hubo un error al enviar tu pedido. Por favor, inténtalo de nuevo.");
+            }
+        });
+    }
+
+    // ----------------------------------------------------
+    // LÓGICA DEL LOGIN (Código nuevo/integrado)
+    // ----------------------------------------------------
+    const formularioLogin = document.getElementById('form-login');
+    if (formularioLogin) {
+        
+        formularioLogin.addEventListener('submit', validarLogin);
+    }
+});
